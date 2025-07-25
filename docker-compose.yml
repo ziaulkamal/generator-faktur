@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel-ziadev
+    container_name: ziastruk
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    ports:
+      - "5012:9000"
+    networks:
+      - apps_network
+      - mysql_network
+
+networks:
+  apps_network:
+    external: true
+  mysql_network:
+    external: true
+
