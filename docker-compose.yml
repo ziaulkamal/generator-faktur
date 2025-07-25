@@ -12,12 +12,8 @@ services:
     ports:
       - "5012:9000"
     networks:
-      - apps_network
-      - mysql_network
+      - default
 
 networks:
-  apps_network:
-    external: true
-  mysql_network:
-    external: true
-
+  default:
+    driver: bridge
